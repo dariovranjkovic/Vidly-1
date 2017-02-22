@@ -7,7 +7,7 @@
     var className = Model.Customer.Count > 1 ? "popular" : null;
 }
 
-<h2 class="@className">@Model.Movie.Name</h2>
+<h2 class="@className">Movies</h2>
 
 @if (Model.Customer.Count == 0)
 {
@@ -15,11 +15,21 @@
 }
 else
 {
-<ul>
-    @foreach (var customer in Model.Customer)
-    {
-       <li>@customer.Name</li>
-    }
-</ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Movie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.Customer)
+            {
+                <tr>
+                    <td>@customer.Name</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
