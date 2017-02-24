@@ -251,9 +251,22 @@
     <Compile Include="Migrations\201702231621523_CustomerAddBirthdate.Designer.cs">
       <DependentUpon>201702231621523_CustomerAddBirthdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702241602063_AddMovie.cs" />
+    <Compile Include="Migrations\201702241602063_AddMovie.Designer.cs">
+      <DependentUpon>201702241602063_AddMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702241611125_Add Genre.cs" />
+    <Compile Include="Migrations\201702241611125_Add Genre.Designer.cs">
+      <DependentUpon>201702241611125_Add Genre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702241619103_MovieAddColumn.cs" />
+    <Compile Include="Migrations\201702241619103_MovieAddColumn.Designer.cs">
+      <DependentUpon>201702241619103_MovieAddColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -325,6 +338,8 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -373,6 +388,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702231621523_CustomerAddBirthdate.resx">
       <DependentUpon>201702231621523_CustomerAddBirthdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702241602063_AddMovie.resx">
+      <DependentUpon>201702241602063_AddMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702241611125_Add Genre.resx">
+      <DependentUpon>201702241611125_Add Genre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702241619103_MovieAddColumn.resx">
+      <DependentUpon>201702241619103_MovieAddColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

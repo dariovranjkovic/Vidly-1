@@ -5,31 +5,38 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly_1.Models;
 using Vidly_1.ViewModels;
+using System.Data.Entity;
 
 namespace Vidly_1.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies/Random
-        public ActionResult Random()
+        private ApplicationDbContext _context;
+
+        public MoviesController()
         {
-            var movie = new Movie()
-            {
-                Name = "Shrek"
-            };
+            _context = new ApplicationDbContext();
+        }
 
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Customer 1"},
-                new Customer { Name = "Customer 2"}
-            };
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
 
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customer = customers
-            };
-            return View(viewModel);
+        // GET: Movies/Random
+        public ActionResult Index()
+        {
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
+            return View(movies);
+        }
+        public ActionResult Details(int id)
+        {
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            return View(movie);
         }
     }
 }
