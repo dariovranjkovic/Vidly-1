@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly_1.Models;
+using Vidly_1.ViewModels;
 
 namespace Vidly_1.Controllers
 {
@@ -20,6 +21,18 @@ namespace Vidly_1.Controllers
         {
             _context.Dispose();
         }
+
+        public ActionResult New()
+        {
+            var membershipTyes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTyes
+            };
+
+            return View(viewModel);
+        }
+
         public ViewResult Index()
         {
             var customers = _context.Customers.Include(c => c.MembershipType).ToList();
